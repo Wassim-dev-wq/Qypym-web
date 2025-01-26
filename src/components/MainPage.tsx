@@ -94,7 +94,7 @@ export const MainPage: React.FC<MainPageProps> = ({pageScroll}) => {
                             <span className="text-brand-accent">Rejoignez</span> la communauté des{" "}
                             <span className="text-brand-accent">premiers utilisateurs</span> et{" "}
                             <br className="hidden sm:block"/>
-                            façonnez l'avenir du sport connecté
+                            façonnez l&apos;avenir du sport connecté
                         </motion.p>
 
                         <motion.div
@@ -128,7 +128,7 @@ export const MainPage: React.FC<MainPageProps> = ({pageScroll}) => {
                             href="#waitlist"
                             className="bg-brand-accent hover:bg-brand-hover text-[#0A0A0B] font-semibold py-3 px-8 rounded-lg transform hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/20"
                         >
-                            Rejoignez la liste d'attente
+                            Rejoignez la liste d&apos;attente
                         </Link>
                     </motion.div>
 
