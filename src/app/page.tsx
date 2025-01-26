@@ -1,9 +1,15 @@
-import AppLayout from "@/components/AppLayout";
+import Navbar from "@/components/NavBar";
+import Head from 'next/head';
+import PageScroll from "@/components/PageScroll";
 
 export default function Home() {
-  return (
-    <div>
-      <AppLayout />
-    </div>
-  )
+    return (
+        <>
+            <Head>
+                <title>QYPYM</title>
+            </Head>
+            <Navbar/>
+            <PageScroll/>
+        </>
+    );
 }
