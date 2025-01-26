@@ -69,7 +69,7 @@ const Footer = () => {
                                 Politique de confidentialité
                             </Link>
                             <Link href="#" className="text-neutral-400 hover:text-brand-accent transition-colors">
-                                Conditions d'utilisation
+                                Conditions d&apos;utilisation
                             </Link>
                             <Link href="mailto:contact@qypym.com"
                                   className="text-neutral-400 hover:text-brand-accent transition-colors">

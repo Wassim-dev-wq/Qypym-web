@@ -59,7 +59,7 @@ export const SignupForm: React.FC<SignupProps> = ({pageScroll}) => {
                         <h2 className="text-3xl md:text-4xl font-bold mb-2">
                             <span
                                 className="bg-gradient-to-r from-brand-accent to-brand-hover bg-clip-text text-transparent">
-                                Rejoignez l'Aventure
+                                Rejoignez l&apos;Aventure
                              </span>
                         </h2>
                         <p className="text-xl text-neutral-300">
@@ -157,7 +157,7 @@ export const SignupForm: React.FC<SignupProps> = ({pageScroll}) => {
                                             type="submit"
                                             className="w-full bg-gradient-to-r from-brand-accent to-brand-hover text-black font-semibold py-4 px-8 rounded-lg transform hover:scale-[1.02] transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/20"
                                         >
-                                            Rejoindre la liste d'attente
+                                            Rejoindre la liste d&apos;attente
                                         </button>
                                         <p className="mt-4 text-center text-sm text-neutral-400">
                                             🔒 Vos données sont sécurisées et ne seront jamais partagées
