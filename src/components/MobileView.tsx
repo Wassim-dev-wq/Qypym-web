@@ -1,8 +1,14 @@
 'use client';
 import {motion, useSpring} from "framer-motion";
 import Image from "next/image";
+import { MotionValue } from "framer-motion";
 
-export const MobileView = ({scale, y}) => {
+type PhoneProps = {
+    scale: MotionValue<number>;
+    y: MotionValue<number>;
+}
+
+export const MobileView = ({scale: scale, y}: PhoneProps) => {
     const smoothTransition = {damping: 50, stiffness: 200};
     const smoothPhoneScale = useSpring(scale, smoothTransition);
     const smoothPhoneY = useSpring(y, smoothTransition);
@@ -39,4 +45,4 @@ export const MobileView = ({scale, y}) => {
             </motion.div>
         </motion.div>
     );
-}
+};
