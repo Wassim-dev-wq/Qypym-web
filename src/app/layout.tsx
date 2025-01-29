@@ -2,6 +2,7 @@ import type {Metadata} from "next";
 import {Geist} from "next/font/google";
 import "./globals.css";
 import React from "react";
+import {Toaster} from "sonner";
 
 const geist = Geist({
     subsets: ["latin"],
@@ -22,6 +23,17 @@ export default function RootLayout({
         <body className={`${geist.className} antialiased`}>
         {children}
         </body>
+        <Toaster
+            position="top-center"
+            toastOptions={{
+                style: {
+                    background: '#12141A',
+                    border: '1px solid #27272A',
+                    color: '#fff',
+                },
+                className: 'my-toast-class',
+            }}
+        />
         </html>
     );
 }

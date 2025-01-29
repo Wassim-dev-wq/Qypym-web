@@ -13,9 +13,9 @@ const NavMenu = () => {
                         <Link href="#accueil" className="text-white/80 hover:text-white transition-colors">
                             Accueil
                         </Link>
-                        <Link href="#features" className="text-white/80 hover:text-white transition-colors">
-                            Fonctionnalités
-                        </Link>
+                        {/*<Link href="#features" className="text-white/80 hover:text-white transition-colors">*/}
+                        {/*    Fonctionnalités*/}
+                        {/*</Link>*/}
                         <Link href="#waitlist" className="text-white/80 hover:text-white transition-colors">
                             Rejoindre
                         </Link>

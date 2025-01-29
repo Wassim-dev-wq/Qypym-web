@@ -1,7 +1,6 @@
 'use client';
-import {motion, useSpring} from "framer-motion";
+import {motion, MotionValue, useSpring, useTransform} from "framer-motion";
 import Image from "next/image";
-import { MotionValue } from "framer-motion";
 
 type PhoneProps = {
     scale: MotionValue<number>;
@@ -9,40 +8,45 @@ type PhoneProps = {
 }
 
 export const MobileView = ({scale: scale, y}: PhoneProps) => {
-    const smoothTransition = {damping: 50, stiffness: 200};
-    const smoothPhoneScale = useSpring(scale, smoothTransition);
-    const smoothPhoneY = useSpring(y, smoothTransition);
+    const springOptions = {
+        damping: 30,
+        stiffness: 100,
+        mass: 1.5
+    };
+
+    const smoothPhoneScale = useSpring(scale, springOptions);
+    const smoothPhoneY = useSpring(y, springOptions);
+
+    const floatY = useTransform(
+        smoothPhoneY,
+        (value) => value + Math.sin(Date.now() * 0.001) * 5
+    );
 
     return (
         <motion.div
-            className="relative z-20"
+            className="relative z-20 -mt-32"
             style={{
                 scale: smoothPhoneScale,
-                y: smoothPhoneY
+                y: floatY,
+                willChange: "transform"
             }}
+            initial={false}
         >
-            <motion.div
-                animate={{y: [-5, 5, -5]}}
-                transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                }}
-            >
-                <div className="relative">
-                    <div
-                        className="absolute -inset-4 bg-gradient-to-b from-brand-accent/10 to-transparent blur-2xl rounded-3xl opacity-30"/>
-                    <Image
-                        src="/images/primary.png"
-                        alt="QYPYM App Preview"
-                        width={340}
-                        height={680}
-                        priority
-                        className="relative transform hover:scale-105 transition-all duration-500 hover:brightness-110 rounded-3xl shadow-2xl"
-                        quality={100}
-                    />
-                </div>
-            </motion.div>
+            <div className="relative">
+                <div
+                    className="absolute -inset-4 bg-gradient-to-b from-brand-accent/10 to-transparent blur-2xl rounded-3xl opacity-20"
+                />
+                <Image
+                    src="/images/primary.png"
+                    alt="QYPYM App Preview"
+                    width={450}
+                    height={800}
+                    priority
+                    className="relative transform rounded-3xl shadow-2xl transition-all duration-500 hover:scale-105 hover:brightness-110"
+                    quality={90}
+                    loading="eager"
+                />
+            </div>
         </motion.div>
     );
 };

@@ -22,7 +22,7 @@ const PageScroll = () => {
             <main
                 ref={mainRef}
                 className="absolute inset-0"
-                style={{height: '200vh'}}
+                style={{height: '190vh'}}
             >
                 <div className="fixed inset-0 pointer-events-none">
                     <div className="absolute inset-0 bg-hero-gradient"/>
