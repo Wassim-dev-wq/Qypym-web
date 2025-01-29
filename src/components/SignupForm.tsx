@@ -64,75 +64,66 @@ export const SignupForm: React.FC<SignupProps> = ({pageScroll}) => {
 
             const mailRef = collection(db, 'mail');
             const emailData = {
-                to: userInput.email,
-                message: {
+                    to: userInput.email,
+                    message: {
                     subject: "Bienvenue dans l'aventure QYPYM ! 🎉",
                     html: `
-                    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #f9f9f9; padding: 20px;">
-                        <div style="text-align: center; margin-bottom: 30px;">
-                            <h1 style="color: #333; margin-bottom: 10px;">Bienvenue chez QYPYM !</h1>
-                            <p style="color: #666; font-size: 18px;">Le futur du sport connecté commence ici</p>
-                        </div>
-
-                        <div style="background-color: white; padding: 30px; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                            <p style="color: #333; font-size: 16px; line-height: 1.6;">
-                                Bonjour,
-                            </p>
-                            
-                            <p style="color: #333; font-size: 16px; line-height: 1.6;">
-                                Merci d'avoir rejoint la liste d'attente QYPYM ! Nous sommes ravis de vous compter parmi nos premiers membres.
-                                ${userInput.sportsLiked.length > 0
-                        ? `Votre intérêt pour ${userInput.sportsLiked.join(' et ')} nous inspire à créer une meilleure expérience sportive.`
-                        : 'Votre intérêt pour le sport connecté nous inspire à créer une meilleure expérience.'}
-                            </p>
-
-                            <div style="margin: 30px 0; padding: 20px; background-color: #f5f5f5; border-radius: 8px;">
-                                <h3 style="color: #333; margin-bottom: 15px;">Ce qui vous attend :</h3>
-                                <ul style="color: #555; margin: 0; padding-left: 20px; line-height: 1.6;">
-                                    <li>Accès prioritaire à la plateforme lors du lancement</li>
-                                    <li>Des mises à jour exclusives sur le développement</li>
-                                    <li>Des offres spéciales réservées aux premiers inscrits</li>
-                                </ul>
+                        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #f9f9f9; padding: 20px;">
+                            <div style="text-align: center; margin-bottom: 30px;">
+                                <h1 style="color: #333; margin-bottom: 10px;">Bienvenue chez QYPYM !</h1>
+                                <p style="color: #666; font-size: 18px;">Le futur du sport connecté commence ici</p>
                             </div>
-
-                            <p style="color: #333; font-size: 16px; line-height: 1.6;">
-                                Restez à l'écoute ! Nous vous tiendrons informé des développements passionnants à venir.
-                            </p>
-                            
-                            <p style="color: #333; font-size: 16px; line-height: 1.6; margin-top: 30px;">
-                                Sportivement,<br>
-                                L'équipe QYPYM
-                            </p>
+                
+                            <div style="background-color: white; padding: 30px; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                <p style="color: #333; font-size: 16px; line-height: 1.6;">
+                                    Bonjour,
+                                </p>
+                                
+                                <p style="color: #333; font-size: 16px; line-height: 1.6;">
+                                    Nous vous remercions d'avoir rejoint la liste d'attente QYPYM ! Nous sommes ravis de vous compter parmi nos premiers membres.
+                                    ${userInput.sportsLiked.length > 0
+                                        ? `Votre passion pour ${userInput.sportsLiked.join(' et ')} nous inspire à créer une expérience sportive encore meilleure.`
+                                        : 'Votre intérêt pour le sport connecté nous inspire à créer une expérience unique.'}
+                                </p>
+                
+                                <p style="color: #333; font-size: 16px; line-height: 1.6;">
+                                    Restez à l'écoute ! Nous vous tiendrons informé(e) des développements passionnants à venir.
+                                </p>
+                                
+                                <p style="color: #333; font-size: 16px; line-height: 1.6; margin-top: 30px;">
+                                    Sportivement,<br>
+                                    L'équipe QYPYM
+                                </p>
+                            </div>
+                
+                            <div style="text-align: center; margin-top: 30px;">
+                                <p style="color: #888; font-size: 14px;">
+                                    Suivez notre actualité sur les réseaux sociaux
+                                </p>
+                            </div>
+                
+                            <div style="text-align: center; color: #999; font-size: 12px; margin-top: 30px;">
+                                <p>
+                                    Cet e-mail a été envoyé à ${userInput.email}.<br>
+                                    © 2024 QYPYM. Tous droits réservés.
+                                </p>
+                            </div>
                         </div>
-
-                        <div style="text-align: center; margin-top: 30px;">
-                            <p style="color: #888; font-size: 14px;">
-                                Suivez notre actualité sur les réseaux sociaux
-                            </p>
-                        </div>
-
-                        <div style="text-align: center; color: #999; font-size: 12px; margin-top: 30px;">
-                            <p>
-                                Cet email a été envoyé à ${userInput.email}.<br>
-                                © 2024 QYPYM. Tous droits réservés.
-                            </p>
-                        </div>
-                    </div>
-                `,
+                    `,
                     text: `
-                    Bienvenue chez QYPYM !
-                    
-                    Merci d'avoir rejoint la liste d'attente QYPYM ! Nous sommes ravis de vous compter parmi nos premiers membres.
-                    
-                    ${userInput.sportsLiked.length > 0
-                        ? `Votre intérêt pour ${userInput.sportsLiked.join(' et ')} nous inspire à créer une meilleure expérience sportive.`
-                        : 'Votre intérêt pour le sport connecté nous inspire à créer une meilleure expérience.'}
-                    
-                    Restez à l'écoute ! Nous vous tiendrons informé des développements passionnants à venir.
-                    
-                    Sportivement,
-                    L'équipe QYPYM
-                `
+                        Bienvenue chez QYPYM !
+                        
+                        Nous vous remercions d'avoir rejoint la liste d'attente QYPYM ! Nous sommes ravis de vous compter parmi nos premiers membres.
+                        
+                        ${userInput.sportsLiked.length > 0
+                                        ? `Votre passion pour ${userInput.sportsLiked.join(' et ')} nous inspire à créer une expérience sportive encore meilleure.`
+                                        : 'Votre intérêt pour le sport connecté nous inspire à créer une expérience unique.'}
+                        
+                        Restez à l'écoute ! Nous vous tiendrons informé(e) des développements passionnants à venir.
+                        
+                        Sportivement,
+                        L'équipe QYPYM
+                    `
                 }
             };
 
