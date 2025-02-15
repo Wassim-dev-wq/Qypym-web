@@ -17,7 +17,8 @@ export const metadata: Metadata = {
         ],
         shortcut: '/qypym_logo.ico',
         apple: '/qypym_logo.ico',
-    }
+      }
+    },
 };
 
 export default function RootLayout({
