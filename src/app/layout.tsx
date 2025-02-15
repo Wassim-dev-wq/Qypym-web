@@ -12,7 +12,12 @@ export const metadata: Metadata = {
     title: "QYPYM",
     description: "Trouve tes partenaires de sport",
     icons: {
-        icon: '/images/qypym_logo.ico',
+        icon: [
+            { url: '/qypym_logo.ico', sizes: 'any' }
+        ],
+        shortcut: '/qypym_logo.ico',
+        apple: '/qypym_logo.ico',
+      }
     },
 };
 
