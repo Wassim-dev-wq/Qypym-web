@@ -4,6 +4,7 @@ import {useRef} from "react";
 import JoinForm from "@/components/SignupForm";
 import FooterSection from "@/components/Footer";
 import MainPage from "@/components/MainPage";
+import FeatureBlock from "@/components/AppFeatures";
 
 const PageScroll = () => {
     const mainRef = useRef(null);
@@ -13,16 +14,16 @@ const PageScroll = () => {
         offset: ["start start", "end start"],
     });
 
-    const topScroll = useTransform(scrollYProgress, [0, 0.5], [0, 1], {clamp: true});
-    const bottomScroll = useTransform(scrollYProgress, [0.5, 1], [0, 1], {clamp: true});
-
+    const topScroll = useTransform(scrollYProgress, [0, 0.2], [0, 1], { clamp: true });
+    const midScroll = useTransform(scrollYProgress, [0.2, 0.8], [0, 1], { clamp: true });
+    const bottomScroll = useTransform(scrollYProgress, [0.8, 1], [0, 1], { clamp: true });
 
     return (
         <div className="relative min-h-screen">
             <main
                 ref={mainRef}
                 className="absolute inset-0"
-                style={{height: '190vh'}}
+                style={{height: '450vh'}}
             >
                 <div className="fixed inset-0 pointer-events-none">
                     <div className="absolute inset-0 bg-hero-gradient"/>
@@ -37,6 +38,12 @@ const PageScroll = () => {
                 <div className="relative">
                     <div className="sticky top-0">
                         <MainPage pageScroll={topScroll}/>
+                    </div>
+                </div>
+
+                <div className="relative">
+                    <div className="sticky top-0">
+                        <FeatureBlock pageScroll={midScroll}/>
                     </div>
                 </div>
 

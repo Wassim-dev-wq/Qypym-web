@@ -66,12 +66,11 @@ export const SignupForm: React.FC<SignupProps> = ({pageScroll}) => {
             const emailData = {
                     to: userInput.email,
                     message: {
-                    subject: "Bienvenue dans l'aventure QYPYM ! 🎉",
+                    subject: "Bienvenue dans l'élite QYPYM",
                     html: `
                         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #f9f9f9; padding: 20px;">
                             <div style="text-align: center; margin-bottom: 30px;">
-                                <h1 style="color: #333; margin-bottom: 10px;">Bienvenue chez QYPYM !</h1>
-                                <p style="color: #666; font-size: 18px;">Le futur du sport connecté commence ici</p>
+                                <h1 style="color: #FFB800; margin-bottom: 10px; text-shadow: 0 0 10px rgba(255, 184, 0, 0.3);">Bienvenue chez QYPYM !</h1>                                <p style="color: #666; font-size: 18px;">Le futur du sport connecté commence ici</p>
                             </div>
                 
                             <div style="background-color: white; padding: 30px; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
@@ -96,12 +95,15 @@ export const SignupForm: React.FC<SignupProps> = ({pageScroll}) => {
                                 </p>
                             </div>
                 
-                            <div style="text-align: center; margin-top: 30px;">
-                                <p style="color: #888; font-size: 14px;">
+
+                            <div style="text-align: center; margin-top: 35px;">
+                                <p style="color: #718096; font-size: 16px; font-weight: 500; margin-bottom: 20px;">
                                     Suivez notre actualité sur les réseaux sociaux
                                 </p>
+                                <div style="margin-bottom: 30px;">
+                                    <a href="https://instagram.com/qypymoff" style="display: inline-block; margin: 0 10px; padding: 12px 24px; background-color: #2d3748; color: white; text-decoration: none; border-radius: 8px; font-weight: 500; transition: background-color 0.3s ease;">Instagram</a>
+                                </div>
                             </div>
-                
                             <div style="text-align: center; color: #999; font-size: 12px; margin-top: 30px;">
                                 <p>
                                     Cet e-mail a été envoyé à ${userInput.email}.<br>
