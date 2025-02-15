@@ -11,6 +11,13 @@ const geist = Geist({
 export const metadata: Metadata = {
     title: "QYPYM",
     description: "Trouve tes partenaires de sport",
+    icons: {
+        icon: [
+            { url: '/qypym_logo.ico', sizes: 'any' }
+        ],
+        shortcut: '/qypym_logo.ico',
+        apple: '/qypym_logo.ico',
+    }
 };
 
 export default function RootLayout({
