@@ -50,10 +50,19 @@ export const SignupForm: React.FC<SignupProps> = ({pageScroll}) => {
         setIsLoading(true);
 
         try {
-            const position = await new Promise<GeolocationPosition>((resolve, reject) => {
-                navigator.geolocation.getCurrentPosition(resolve, reject);
-            }).catch(() => null);
-
+            let trackingData = null;
+            const trackingCookie = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('tracking_data='));
+            if (trackingCookie) {
+                try {
+                    const cookieVal = trackingCookie.split('=')[1];
+                    const decoded = decodeURIComponent(cookieVal);
+                    trackingData = JSON.parse(decoded);
+                } catch (error) {
+                    console.error("Error parsing tracking cookie:", error);
+                }
+            }
             const submissionData = {
                 ...userInput,
                 createdAt: serverTimestamp(),
@@ -61,13 +70,11 @@ export const SignupForm: React.FC<SignupProps> = ({pageScroll}) => {
                 userAgent: navigator.userAgent,
                 locale: navigator.language,
                 timestamp: new Date().toISOString(),
-                location: position ? {
-                    latitude: position.coords.latitude,
-                    longitude: position.coords.longitude
-                } : null,
                 timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-                country: navigator.language.split('-')[1] || null
+                country: navigator.language.split('-')[1] || null,
+                tracking: trackingData,
             };
+
             const waitlistRef = collection(db, 'waitlist');
             const docRef = await addDoc(waitlistRef, submissionData);
             const mailRef = collection(db, 'mail');
@@ -136,9 +143,14 @@ export const SignupForm: React.FC<SignupProps> = ({pageScroll}) => {
                     `
                 }
             };
-
             await addDoc(mailRef, emailData);
-
+            if (window.gtag && trackingData) {
+                window.gtag('event', 'signup', {
+                    utm_source: trackingData.s,
+                    utm_medium: trackingData.m,
+                    utm_campaign: trackingData.c,
+                });
+            }
             setUserInput({
                 email: "",
                 sportsLiked: [],
