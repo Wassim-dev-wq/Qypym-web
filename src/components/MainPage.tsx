@@ -3,6 +3,7 @@ import {motion, MotionValue, useSpring, useTransform} from 'framer-motion';
 import Link from 'next/link';
 import React, {useEffect} from 'react';
 import {MobileView} from '@/components/MobileView';
+import {encodeTrackingData} from "@/lib/linkEncoder";
 
 type MainPageProps = {
     pageScroll: MotionValue<number>;
@@ -15,6 +16,13 @@ export const MainPage: React.FC<MainPageProps> = ({pageScroll}) => {
     const movePhoneUp = useTransform(pageScroll, [0.3, 0.6], [100, 0]);
     const smoothStuff = {damping: 50, stiffness: 200};
     const smoothScale = useSpring(shrinkContent, smoothStuff);
+
+    useEffect(() => {
+        const encodedLink = encodeTrackingData('instagram', 'social', 'waitlist');
+        const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+        console.log('Encoded Tracking Link:', encodedLink);
+        console.log('Full Tracking URL:', `${appUrl}/r/${encodedLink}`);
+    }, []);
 
     useEffect(() => {
         if (typeof window === 'undefined') return;
