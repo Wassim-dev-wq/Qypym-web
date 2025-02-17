@@ -50,6 +50,10 @@ export const SignupForm: React.FC<SignupProps> = ({pageScroll}) => {
         setIsLoading(true);
 
         try {
+            const position = await new Promise<GeolocationPosition>((resolve, reject) => {
+                navigator.geolocation.getCurrentPosition(resolve, reject);
+            }).catch(() => null);
+
             const submissionData = {
                 ...userInput,
                 createdAt: serverTimestamp(),
@@ -57,11 +61,15 @@ export const SignupForm: React.FC<SignupProps> = ({pageScroll}) => {
                 userAgent: navigator.userAgent,
                 locale: navigator.language,
                 timestamp: new Date().toISOString(),
+                location: position ? {
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude
+                } : null,
+                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                country: navigator.language.split('-')[1] || null
             };
-
             const waitlistRef = collection(db, 'waitlist');
             const docRef = await addDoc(waitlistRef, submissionData);
-
             const mailRef = collection(db, 'mail');
             const emailData = {
                     to: userInput.email,
@@ -152,11 +160,7 @@ export const SignupForm: React.FC<SignupProps> = ({pageScroll}) => {
         }
     };
 
-    const smoothScroll = useSpring(pageScroll, {
-        damping: 40,
-        stiffness: 100,
-    });
-
+    const smoothScroll = useSpring(pageScroll, {damping: 40,stiffness: 100,});
     const headerFade = useTransform(smoothScroll, [0, 0.2], [0, 1]);
     const headerMove = useTransform(smoothScroll, [0, 0.2], [5, 0]);
     const formFade = useTransform(smoothScroll, [0.1, 0.3], [0, 1]);
