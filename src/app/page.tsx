@@ -8,6 +8,7 @@ export default function Home() {
         <Suspense fallback={<div>Loading...</div>}>
             <Head>
                 <title>QYPYM</title>
+
             </Head>
             <Navbar/>
             <PageScroll/>

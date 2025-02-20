@@ -42,7 +42,7 @@ const Footer = () => {
     ];
 
     return (
-        <footer className="relative py-12 border-t border-neutral-800">
+        <footer className="relative py-12 border-t border-neutral-800 bg-hero-gradient">
             <div className="container mx-auto px-6">
                 <div className="max-w-5xl mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">

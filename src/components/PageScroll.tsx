@@ -23,16 +23,19 @@ const PageScroll = () => {
             <main
                 ref={mainRef}
                 className="absolute inset-0"
-                style={{height: '450vh'}}
+                style={{height: '500vh'}}
             >
                 <div className="fixed inset-0 pointer-events-none">
-                    <div className="absolute inset-0 bg-hero-gradient"/>
-                    <div className="absolute inset-0">
-                        <div
-                            className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(230,153,0,0.08)_0%,transparent_40%)]"/>
-                        <div
-                            className="absolute inset-0 bg-[radial-gradient(circle_at_80%_75%,rgba(255,181,46,0.05)_0%,transparent_30%)]"/>
-                    </div>
+                    <div className="absolute inset-0 z-0 bg-hero-gradient"/>
+                    <div
+                        className="absolute inset-0 z-10 pointer-events-none"
+                        style={{
+                            backgroundImage: "url('/images/filigramme.png')",
+                            backgroundRepeat: "repeat",
+                            backgroundSize: "auto",
+                            opacity: 0.8,
+                        }}
+                    />
                 </div>
 
                 <div className="relative">
@@ -52,7 +55,9 @@ const PageScroll = () => {
                         <JoinForm pageScroll={bottomScroll}/>
                     </div>
                 </div>
-                <FooterSection/>
+                <div className="mt-20">
+                    <FooterSection/>
+                </div>
             </main>
         </div>
     );

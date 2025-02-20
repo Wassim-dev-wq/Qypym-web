@@ -128,11 +128,7 @@ export const AppFeatures: React.FC<AppFeaturesProps> = ({pageScroll}) => {
 
     return (
         <section id="features" className="relative min-h-[300vh]">
-            <div className="absolute inset-0">
-                <div className="absolute inset-0 bg-[#0A0A0B]"/>
-                <div
-                    className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-accent/[0.005] to-transparent"/>
-            </div>
+
 
             <motion.div
                 className="absolute top-0 w-full flex items-center justify-center h-screen"
