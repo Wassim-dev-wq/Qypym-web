@@ -233,7 +233,7 @@ export const SignupForm: React.FC<SignupProps> = ({pageScroll}) => {
                                                         Inscription en cours...
                                                     </>
                                                 ) : (
-                                                    "Rejoindre la liste d'attente"
+                                                    "Rejoindre la communauté"
                                                 )}
                                             </button>
                                             <p className="mt-4 text-center text-sm text-neutral-400">🔒 Vos données sont sécurisées et ne seront jamais partagées</p>
