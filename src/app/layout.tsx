@@ -47,7 +47,7 @@ export default function RootLayout({
                     `}
             </Script>
         </head>
-        <body className={`${geist.className} antialiased`}>
+        <body className={`${geist.className} antialiased relative`}>
         {children}
         <Toaster
             position="top-center"
@@ -70,5 +70,6 @@ export default function RootLayout({
         />
         </body>
         </html>
-    );
+    )
+        ;
 }

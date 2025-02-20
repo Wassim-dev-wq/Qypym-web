@@ -7,7 +7,7 @@ type PhoneProps = {
     y: MotionValue<number>;
 }
 
-export const MobileView = ({scale: scale, y}: PhoneProps) => {
+export const MobileView = ({ scale, y }: PhoneProps) => {
     const springOptions = {
         damping: 30,
         stiffness: 100,
@@ -24,7 +24,7 @@ export const MobileView = ({scale: scale, y}: PhoneProps) => {
 
     return (
         <motion.div
-            className="relative z-20 -mt-32"
+            className="relative z-20 -mt-48"
             style={{
                 scale: smoothPhoneScale,
                 y: floatY,
@@ -33,14 +33,12 @@ export const MobileView = ({scale: scale, y}: PhoneProps) => {
             initial={false}
         >
             <div className="relative">
-                <div
-                    className="absolute -inset-4 bg-gradient-to-b from-brand-accent/10 to-transparent blur-2xl rounded-3xl opacity-20"
-                />
+                <div className="absolute -inset-4 bg-gradient-to-b from-brand-accent/10 to-transparent blur-2xl rounded-3xl opacity-20" />
                 <Image
                     src="/images/primary.png"
                     alt="QYPYM App Preview"
-                    width={450}
-                    height={800}
+                    width={350}
+                    height={700}
                     priority
                     className="relative transform rounded-3xl shadow-2xl transition-all duration-500 hover:scale-105 hover:brightness-110"
                     quality={90}

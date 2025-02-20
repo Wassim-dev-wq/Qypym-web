@@ -25,6 +25,7 @@ export default {
                 },
             },
             backgroundImage: {
+                'filigrame': "url('/images/filigramme.png')",
                 'hero-gradient': `
                     radial-gradient(circle at 20% 25%, rgba(230, 153, 0, 0.08) 0%, transparent 40%),
                     radial-gradient(circle at 80% 75%, rgba(255, 181, 46, 0.05) 0%, transparent 30%),

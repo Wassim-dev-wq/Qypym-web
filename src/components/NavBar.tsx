@@ -4,12 +4,17 @@ import { useState } from "react";
 
 const NavMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
-
     return (
-        <nav className="fixed top-0 w-full z-50 bg-black/20 backdrop-blur-md">
+        <nav className="fixed w-full z-50 bg-black/5 backdrop-blur-md">
             <div className="container mx-auto px-6 py-4">
                 <div className="flex justify-between items-center">
-                    <Link href="/" className="text-2xl font-bold text-white">
+                    <Link href="/" className="flex items-center text-2xl font-bold text-white">
+                        <img
+                            src="/images/QypymLogo.png"
+                            alt="Logo"
+                            style={{ height: "1em", width: "auto" }}
+                            className="mr-2"
+                        />
                         QYPYM
                     </Link>
 
