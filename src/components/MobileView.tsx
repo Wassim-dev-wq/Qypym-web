@@ -24,7 +24,7 @@ export const MobileView = ({ scale, y }: PhoneProps) => {
 
     return (
         <motion.div
-            className="relative z-20 -mt-48"
+            className="relative z-20 -mt-36"
             style={{
                 scale: smoothPhoneScale,
                 y: floatY,
